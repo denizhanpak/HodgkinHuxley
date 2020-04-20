@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 from scipy.signal import find_peaks
-from hodgkin_huxley.constants import *
-from hodgkin_huxley import visualizer
+from .constants import *
+#from hodgkin_huxley import visualizer
 
 def x0(V, gating): #The equilibrium functions x0 for gating variable x=m,n,h
     if gating=='n':
@@ -32,7 +32,7 @@ def show_x0():
 
 def adjmat(size, p=1, q=1, r=2, dim=2, show=True): #default is p=1 and r=2
     directed_sw = nx.navigable_small_world_graph(size, p, q, r, dim) #A navigable small-world graph is a directed grid with additional long-range connections that are chosen randomly.
-    visualizer.colored_circle(directed_sw)
+    #visualizer.colored_circle(directed_sw)
     aspl = nx.average_shortest_path_length(directed_sw)
     acc = nx.average_clustering(directed_sw)
     print("Average shortest path length: " + str(aspl))
